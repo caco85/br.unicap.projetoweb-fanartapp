@@ -15,7 +15,7 @@ O projeto foi desenvolvido :
 
 Front end: html 5-Com o content do Laravel blade; CSS- Com a biblioteca do Bootstrap, algumas adições classes quando houve necessidade JS e JQuery ,com a biblioteca do Bootstrap e do Pack do Node.JS,algumas funcionalidades feita por mim mesmo; Símbolos da biblioteca https://fontawesome.com/;. API- “ainda vou pesquisa”
 
-Back end: Php-Laravel como API; Modelo MVC; Migration Para modelar o banco de dados.
+Back end: Php-Laravel como framework ; Modelo MVC; Migration Para modelar o banco de dados.
 
 Banco de Dados: Mysql-phpmyadmin.
 
