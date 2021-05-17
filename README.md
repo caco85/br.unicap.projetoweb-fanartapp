@@ -7,56 +7,60 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+# README #
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Projeto da Disciplina programação web - Portefolio
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+O projeto foi desenvolvido :
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Front end: html 5-Com o content do Laravel blade; CSS- Com a biblioteca do Bootstrap, algumas adições classes quando houve necessidade JS e JQuery ,com a biblioteca do Bootstrap e do Pack do Node.JS,algumas funcionalidades feita por mim mesmo; Símbolos da biblioteca https://fontawesome.com/;. API- “ainda vou pesquisa”
 
-## Learning Laravel
+Back end: Php-Laravel como API; Modelo MVC; Migration Para modelar o banco de dados.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Banco de Dados: Mysql-phpmyadmin.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Run: git clone https://github.com/caco85/br.unicap.projetoweb-fanartapp.git
 
-## Laravel Sponsors
+Run: cd br.unicap.projetoweb-fanartapp
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Install Wamp Server ou xampp
 
-### Premium Partners
+Run : composer Install
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
+Run: composer global require laravel/installer
 
-## Contributing
+Database: Este ponto vai ajustar seu banco de dados
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Run: copy .env.example .env
 
-## Code of Conduct
+Run: php artisan cache:clear
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Run: php artisan config:clear
 
-## Security Vulnerabilities
+Run: php artisan key:generate
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+abrar o .env você tem que altear seu DB
 
-## License
+DB_CONNECTION=mysql DB_HOST=127.0.0.1 DB_PORT=3306 (se usar outra porta altere aqui) DB_DATABASE=nome-exemple ou fanart DB_USERNAME=userExemple ou "root"
+DB_PASSWORD=passwordExemple ou ""
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+depois vá em phpmyadmin add um BD com o seu nome ex: "fanart"
+
+Para criar seu DB
+
+Run: php artisan migrate --seed
+
+Se ja existe migrate
+
+Run: php artisan migrate:fresh --seed
+
+isso ira inserir os registros iniciais na base de dados
+
+Para habilitar o link do storage no laravel (habilitar o exebição das imagens)
+
+Run : php artisan storage:link
+
+INICIANDO O SERVER
+RUN: php artisan serve
+
+abra o link em seu navegador in http://localhost:8000
