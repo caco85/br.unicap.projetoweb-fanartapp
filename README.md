@@ -9,7 +9,7 @@
 
 # README #
 
-Projeto da Disciplina programação web - Portefolio
+Projeto da Disciplina programação web - Portefolio host - http://fanartonline.herokuapp.com/
 
 O projeto foi desenvolvido :
 
@@ -56,6 +56,8 @@ Se ja existe migrate
 Run: php artisan migrate:fresh --seed
 
 isso ira inserir os registros iniciais na base de dados
+
+obs foi alterado para postgre e caso use mysql na linha 18 do config/database.php altere 'pgsql'-> 'mysql'
 
 Para habilitar o link do storage no laravel (habilitar o exebição das imagens)
 
