@@ -1,21 +1,13 @@
 @extends('layouts.template')
 @section('content')
     <div class="row">
-        <div class="col-lg-6 d-none d-lg-block">
-            <div class="row" style="position: absolute;
-            top: 30%;
-            height: 20px;
-            margin-left: 30px;
-            margin-right: 30px;
-            margin-top: -10px;">
-                <img src="{{ asset('/storage/images/luffy.jfif') }}" width="100%">
-            </div>
+        <div class="col-lg-6 d-none d-lg-block mb-4">
+                <img  src="{{ asset('/img/logo.png') }}" width="100%">
         </div>
-
         <div class="col-lg-6">
             <div class="p-5">
                 <div class="text-center">
-                    <h1 class="h4 text-white-900 mb-4" style="color: white">Bem-vindo ao <br> FanArt </h1>
+                    <h1 class="h4 text-white-900 mb-4">Bem-vindo </h1>
                 </div>
                 <form class="user" method="POST" name="login" action="{{url('login')}}">
                     @csrf

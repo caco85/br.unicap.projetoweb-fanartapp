@@ -17,6 +17,9 @@
     <body id="page-top">
         <div class="container">
             <header class="card-header mb-4">
+                <div class="card-img">
+                    <img  src="{{ asset('/img/logo.png') }}"  style="height: 40px; width: 100px; position: absolute">
+                </div>
                 <ul class="nav justify-content-end">
                     <li class="nav-item">
                         <a class="nav-link " href="{{url('public/index')}}">Home</a>
@@ -46,8 +49,16 @@
                                 </div>
                             </li>
                         @else
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Menu</a>
+                            <li class="nav-link">{{$users->name}}</li>
+
+                            <li class="nav-item dropdown " >
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                    @if ($users->photo)
+                                        <img class="rounded-circle" src="{{ url('storage/users-images/'.$users->photo )}}" style="height: 50px; width: 50px;">
+                                    @else
+                                        Menu
+                                    @endif
+                                </a>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item"  href="{{url('/evaluation/evaluations')}}">Suas Avaliações</a>
                                     <a class="dropdown-item" href="{{url('/fanart/fanarts')}}">Suas Fanart's</a>
@@ -55,11 +66,12 @@
                                     <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Sair</a>
                                 </div>
                             </li>
+
                         @endif
-{{--                        <li>{{$users->name}}</li>--}}
+
                     @endif
                 </ul>
-                <!-- Topbar -->
+
             </header>
             <div class="container-fluid">
                 <!-- Page Heading -->
