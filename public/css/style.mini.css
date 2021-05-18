@@ -3,7 +3,11 @@
 }
 .pull-left {
     float: left;
-}
+
+}body {
+     height: 100%;
+ }
+
 .scroll-to-top {
     position: fixed;
     right: 1rem;
@@ -29,6 +33,11 @@
     font-weight: 800;
 }
 
+.sidebar .nav-item .nav-link .img-profile,
+.topbar .nav-item .nav-link .img-profile {
+    height: 2rem;
+    width: 2rem;
+}
 .stars input[type=radio]{
     display: none;
     width: 30px;
@@ -41,4 +50,8 @@
   }
 #starIcon{
     background-color: #ffe70a;
+}
+img-prof{
+    height: 10rem;
+    width: 10rem;
 }
