@@ -15,8 +15,8 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'pgsql'),
-    //'default' => env('DB_CONNECTION', 'mysql'), //obs caso for usar  o myslq descomente esta linha que foi alterada pra p heroku ,que usa o postgre
+   'default' => env('DB_CONNECTION', 'pgsql'),
+//   'default' => env('DB_CONNECTION', 'mysql'), //obs caso for usar  o myslq descomente esta linha que foi alterada pra p heroku ,que usa o postgre
     /*
     |--------------------------------------------------------------------------
     | Database Connections
