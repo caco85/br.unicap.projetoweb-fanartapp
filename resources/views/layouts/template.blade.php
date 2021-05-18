@@ -54,7 +54,7 @@
                             <li class="nav-item dropdown " >
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                                     @if ($users->photo)
-                                        <img class="rounded-circle" src="{{ url('storage/users-images/'.$users->photo )}}" style="height: 50px; width: 50px;">
+                                        <img class="rounded-circle" src="{{ asset('app/public/storage/users-images/'.$users->photo )}}" style="height: 50px; width: 50px;">
                                     @else
                                         Menu
                                     @endif

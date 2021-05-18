@@ -6,7 +6,7 @@
                 <div class="card h-100">
                         <a href="/fanart/{{ $fanart->id }}/show">
                     @if ($fanart->image)
-                        <img src="{{ url('storage/fanartimages/'.$fanart->image )}}" class="card-img-top "  alt="{{ $fanart->title}}">
+                        <img src="{{ url('~/storage/fanartimages/'.$fanart->image )}}" class="card-img-top "  alt="{{ $fanart->title}}">
                     @endif
                     </a>
                     <div class="card-body">
