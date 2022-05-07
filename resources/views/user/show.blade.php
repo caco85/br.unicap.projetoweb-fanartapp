@@ -12,7 +12,7 @@
                     <h4 class="mt-0 mb-1">{{$user->name}}</h4>
                 </div>
                 @if ($user->photo )
-                    <img  class="img-profile rounded-circle ml-3" src="{{ url('storage/users-images/'.$user->photo )}}" style="height: 10rem; width: 10rem;" >
+                    <img  class="img-profile rounded-circle ml-3" src="{{ url('storage/'.$user->photo )}}" style="height: 10rem; width: 10rem;" >
                 @endif
             </div>
             <ul class="list-group list-group-flush mb-3">

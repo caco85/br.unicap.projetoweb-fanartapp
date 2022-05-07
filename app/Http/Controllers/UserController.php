@@ -9,6 +9,9 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Redirect;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -82,32 +85,44 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $users = Auth::user();
-        $validated = $request->validate([
+        $data = $request->validate([
             'name' => 'required|max:255',
             'email' => 'required|email|unique:User',
             'password' => 'required|min:8|confirmed|',
             'type' => 'required',
-            'birthday' => 'required'
+            'birthday' => 'required',
+            'photo' => 'image|nullable'
         ]);
-        if($request->hasFile('photo')){
+        // if($request->hasFile('photo')){
 
-            $filenameWithExt = $request->file('photo')->getClientOriginalName();
+        //     $filenameWithExt = $request->file('photo')->getClientOriginalName();
 
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+        //     $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
 
-            $extension = $request->file('photo')->getClientOriginalExtension();
+        //     $extension = $request->file('photo')->getClientOriginalExtension();
 
-            $fileNameToStore= $filename.'_'.time().'.'.$extension;
+        //     $fileNameToStore= $filename.'_'.time().'.'.$extension;
 
-            $path = $request->file('photo')->storeAs('users-images', $fileNameToStore);
+        //     $path = $request->file('photo')->storeAs('users-images', $fileNameToStore);
 
-            if(!$path)
-                return redirect()
-                    ->back()
-                    ->with('error','erro ao anexar a foto!');
-        } else {
-            $fileNameToStore = '';
-        }
+        //     if(!$path)
+        //         return redirect()
+        //             ->back()
+        //             ->with('error','erro ao anexar a foto!');
+        // } else {
+        //     $fileNameToStore = '';
+        // }
+
+        // if (isset($data['photo'])) {
+        //     $relativePath  = $this->saveImage($data['photo']);
+        //     $data['photo'] = $relativePath;
+        // }else
+        // {
+        //     $data['photo'] = '';
+        // }
+        $image = $request->file('photo');
+        $photoPath = $image->store('imagens/users','public');
+      //  dd($data['photo']);
 
         $parseUrl = parse_url($request->instagram);
         if(!isset($parseUrl['scheme'])){
@@ -118,7 +133,7 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
-        $user->photo = $fileNameToStore;
+        $user->photo = $photoPath;
         $user->instagram = $request->instagram;
         $user->birthday= $request->birthday;
         $user->type =$request->type;
@@ -133,6 +148,8 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::findOrFail($id);
+
+      //  dd($user->photo);
         if($user){
            return view('user/show',['user' =>$user]);
         }
@@ -157,35 +174,48 @@ class UserController extends Controller
 
         ]);
 
-        if($request->hasFile('photo')){
+        // if($request->hasFile('photo')){
 
-            if($user->photo && Storage::exists('users-images', $user->photo)){
-                Storage::delete("users-images/{$user->photo}");
-            }
+        //     if($user->photo && Storage::exists('users-images', $user->photo)){
+        //         Storage::delete("users-images/{$user->photo}");
+        //     }
 
 
-            $filenameWithExt = $request->file('photo')->getClientOriginalName();
+        //     $filenameWithExt = $request->file('photo')->getClientOriginalName();
 
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+        //     $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
 
-            $extension = $request->file('photo')->getClientOriginalExtension();
+        //     $extension = $request->file('photo')->getClientOriginalExtension();
 
-            $fileNameToStore= $filename.'_'.time().'.'.$extension;
+        //     $fileNameToStore= $filename.'_'.time().'.'.$extension;
 
-            $path = $request->file('photo')->storeAs('users-images', $fileNameToStore);
+        //     $path = $request->file('photo')->storeAs('users-images', $fileNameToStore);
 
-            $data['photo'] = $fileNameToStore;
-            if(!$path)
-                return redirect()
-                    ->back()
-                    ->with('error','erro ao anexar a foto!');
+        //     $data['photo'] = $fileNameToStore;
+        //     if(!$path)
+        //         return redirect()
+        //             ->back()
+        //             ->with('error','erro ao anexar a foto!');
+        // }
+
+
+
+        if ($request->file('photo')) {
+            Storage::disk('public')->delete($user->photo);
         }
+
+        $image = $request->file('photo');
+        $photoPath = $image->store('imagens/users','public');
+
+
+
         $parseUrl = parse_url($request->instagram);
         if(!isset($parseUrl['scheme'])){
             $data['instagram'] = 'http://'.$data['instagram'];
         }
 
         $data['password'] = bcrypt($request->password);
+        $data['photo'] =  $photoPath ;
 
         $user->update( $data);
         $users = Auth::user();
@@ -199,12 +229,17 @@ class UserController extends Controller
     {
         $user = User::findOrFail( $id );
 
-//        if($user->photo && Storage::exists('users-images', $user->photo)){
-//            Storage::delete("users-images/{$user->photo}");
-//        }
+       if($user->photo && Storage::exists('imagens/users','public', $user->photo)){
+           Storage::delete("imagens/users/{$user->photo}");
+       }
+
 
         $user->delete();
         $users = Auth::user();
+
+
+
+
         if($users->type !='admin'){
             return Redirect::to('logout');
         }

@@ -22,7 +22,7 @@ class CreateUserTable extends Migration
             $table->string('instagram')->nullable();
             $table->date('birthday');
             $table->double('mediaRating')->nullable();
-            $table->enum('type',['admin','simple']);
+            $table->enum('type',['admin','simple','moderator']);
             $table->rememberToken();
             $table->timestamps();
         });

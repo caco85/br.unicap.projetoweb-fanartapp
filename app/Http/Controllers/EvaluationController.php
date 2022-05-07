@@ -22,7 +22,7 @@ class EvaluationController extends Controller
     public function  index(){
         $users = Auth::user();
 
-        if ($users->type == 'admin'){
+        if ($users->type == 'admin' || $users->type == 'moderator' ){
             $evaluations = Evaluation::all()->sortByDesc("id");
 
         }

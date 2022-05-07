@@ -2,7 +2,7 @@
 @section('content')
     <div class="row mb-4">
         @if ($fanart->image)
-            <img src="{{ url('storage/fanartimages/'.$fanart->image )}}" class="col-lg-6 d-none d-lg-block  img-thumbnail"  >
+            <img src="{{ url('storage/'.$fanart->image )}}" class="col-lg-6 d-none d-lg-block  img-thumbnail"  >
         @endif
         <div class="col">
             <h2><strong>Detalhes da FanArt:</strong></h2>

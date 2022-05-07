@@ -51,24 +51,27 @@ class FanArtController extends Controller
             'image' => 'image|nullable',
             'id_scheduleCategory' => 'numeric',
         ]);
-        if($request->hasFile('image')){
+        // if($request->hasFile('image')){
 
-            $filenameWithExt = $request->file('image')->getClientOriginalName();
+        //     $filenameWithExt = $request->file('image')->getClientOriginalName();
 
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+        //     $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
 
-            $extension = $request->file('image')->getClientOriginalExtension();
+        //     $extension = $request->file('image')->getClientOriginalExtension();
 
-            $fileNameToStore= $filename.'_'.time().'.'.$extension;
+        //     $fileNameToStore= $filename.'_'.time().'.'.$extension;
 
-            $path = $request->file('image')->storeAs('fanartimages', $fileNameToStore);
-            if(!$path)
-                return redirect()
-                    ->back()
-                    ->with('error','erro ao anexar a foto!');
-        } else {
-            $fileNameToStore = '';
-        }
+        //     $path = $request->file('image')->storeAs('fanartimages', $fileNameToStore);
+        //     if(!$path)
+        //         return redirect()
+        //             ->back()
+        //             ->with('error','erro ao anexar a foto!');
+        // } else {
+        //     $fileNameToStore = '';
+        // }
+
+        $image = $request->file('image');
+        $fanartsPath = $image->store('imagens/fanarts','public');
 
         $user = Auth::user();
         $user_id  = $user->id;
@@ -76,7 +79,7 @@ class FanArtController extends Controller
         $fanart = new FanArt;
         $fanart->title = $request->title;
         $fanart->description = $request->description;
-        $fanart->image = $fileNameToStore;
+        $fanart->image = $fanartsPath;
         $fanart->id_user = $user_id;
         $fanart->id_category = $request->id_category;
 
@@ -114,31 +117,36 @@ class FanArtController extends Controller
 
         $fanart = FanArt::findOrFail($id);
         $data = $request->all();
-        if($request->hasFile('image')){
+        // if($request->hasFile('image')){
 
-            if($fanart->image && Storage::exists('fanartimages', $fanart->image)){
+        //     if($fanart->image && Storage::exists('fanartimages', $fanart->image)){
 
-                Storage::delete("fanartimages/{$fanart->image}");
-            }
+        //         Storage::delete("fanartimages/{$fanart->image}");
+        //     }
 
-            $filenameWithExt = $request->file('image')->getClientOriginalName();
+        //     $filenameWithExt = $request->file('image')->getClientOriginalName();
 
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+        //     $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
 
-            $extension = $request->file('image')->getClientOriginalExtension();
+        //     $extension = $request->file('image')->getClientOriginalExtension();
 
-            $fileNameToStore= $filename.'_'.time().'.'.$extension;
+        //     $fileNameToStore= $filename.'_'.time().'.'.$extension;
 
-            $path = $request->image->storeAs('fanartimages', $fileNameToStore);
-            $data['image'] = $fileNameToStore;
-            if(!$path)
-                return redirect()
-                    ->back()
-                    ->with('error','erro ao anexar a foto!');
-        }
+        //     $path = $request->image->storeAs('fanartimages', $fileNameToStore);
+        //     $data['image'] = $fileNameToStore;
+        //     if(!$path)
+        //         return redirect()
+        //             ->back()
+        //             ->with('error','erro ao anexar a foto!');
+        // }
 
+        $image = $request->file('image');
+        $fanartsPath = $image->store('imagens/fanarts','public');
+
+        $data['image'] = $fanartsPath;
 
         $fanart->update($data);
+        
         return Redirect::to('fanart/fanarts');
     }
 

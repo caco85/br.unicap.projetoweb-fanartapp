@@ -45,7 +45,7 @@
                                     <a class="dropdown-item" href="{{url('/fanart/fanarts')}}">FanArt</a>
                                     <a class="dropdown-item" href="{{url('/loginrecord/loginrecords')}}">Registro de Logins</a>
                                     <a class="dropdown-item" href="{{url('/user/users')}}">Usuários</a>
-                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal"">Sair</a>
+                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Sair</a>
                                 </div>
                             </li>
                         @else
@@ -54,10 +54,11 @@
                             <li class="nav-item dropdown " >
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                                     @if ($users->photo)
-                                        <img class="rounded-circle" src="{{ asset('app/public/storage/users-images/'.$users->photo )}}" style="height: 50px; width: 50px;">
+                                        <img class="rounded-circle" src="{{ asset('storage/'.$users->photo )}}" style="height: 50px; width: 50px;">
                                     @else
                                         Menu
                                     @endif
+
                                 </a>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item"  href="{{url('/evaluation/evaluations')}}">Suas Avaliações</a>
