@@ -15,7 +15,7 @@
             </ul>
             <div class="form-group text-center">
                 @php $users = Auth::user();@endphp
-                @if ($users->type == 'admin' && $evaluation->status == "pending")
+                @if ($users->type != 'simple' && $evaluation->status == "pending")
 
                     <form class="d-inline-block" method="post" action="{{ url('evaluation/approve')}}/{{$evaluation->id}}">
                         @csrf

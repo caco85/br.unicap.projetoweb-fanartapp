@@ -87,6 +87,7 @@
                                 <option value="">Escolha o Tipo</option>
                                 <option value="admin">Administrador</option>
                                 <option value="simple">Usuário Comum</option>
+                                <option value="Moderator">Moderador</option>
                             </select>
                         @else
                             <input class="form-control @error('type') is-invalid @enderror"

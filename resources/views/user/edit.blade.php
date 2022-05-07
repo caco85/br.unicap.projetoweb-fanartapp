@@ -22,7 +22,7 @@
 
                         <label for="photo">Foto:</label>
                         @if ($user->photo)
-                            <img src="{{ url('storage/users-images/'.$user->photo )}}" style="max-width: 50px;">
+                            <img src="{{ url('storage/'.$user->photo ) }}" style="max-width: 50px;">
                         @endif
                         <input type="file" class="form-control " id="photo" name="photo">
                     </div>

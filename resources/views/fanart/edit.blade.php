@@ -25,7 +25,7 @@
                     <div class="form-group">
                         <label for="image">Imagem:</label>
                         @if ($fanart->image)
-                            <img src="{{ url('storage/fanartimages/'.$fanart->image )}}" style="max-width: 50px;">
+                            <img src="{{ url('storage/'.$fanart->image )}}" style="max-width: 50px;">
                         @endif
                         <input type="file" class="form-control " id="image" name="image">
                     </div>

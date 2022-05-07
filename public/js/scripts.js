@@ -25,3 +25,10 @@ function checkInputCB(){
         document.getElementById("chancePassword").hidden = false;
     }
 }
+
+
+$(document).on("click", "#btnModalExcluir", function () {
+    var itemID = $(this).attr('data-id');
+    $('#modal-delete form').attr('action','delete/'+itemID);
+
+});

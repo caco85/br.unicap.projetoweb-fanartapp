@@ -25,7 +25,7 @@
                                     <a class="btn btn-success" href="/fanart/{{ $fanart->id }}/show"  title="Detalhar">Detalhar</a>
                                     <a class="btn btn-primary" href="/fanart/{{ $fanart->id }}/edit"  title="Editar">Editar</a>
                                     <span data-placement="top" title="Excluir">
-                                        <a class="btn btn-danger" data-toggle="modal" data-target="#modal-delete">Excluir</a>
+                                        <a class="btn btn-danger" data-toggle="modal" data-target="#modal-delete"  id="btnModalExcluir" data-id="{{ $fanart->id }}">Excluir</a>
                                     </span>
                                 </td>
                             </tr>
@@ -39,7 +39,7 @@
                                                 <span aria-hidden="true">×</span>
                                             </button>
                                         </div>
-                                        <div class="modal-body text text-danger">Deseja realmente excluir esse usuário?</div>
+                                        <div class="modal-body text text-danger">Deseja realmente excluir essa fanart?</div>
                                         <div class="modal-footer">
                                             <button class="btn btn-primary" type="button" data-dismiss="modal">Cancelar</button>
                                             <form class="d-inline-block" action="delete/{{ $fanart->id }}"  method="post">

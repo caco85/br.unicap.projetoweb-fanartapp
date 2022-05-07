@@ -23,7 +23,7 @@
                                     <a class="btn btn-success" href="/user/{{ $user->id }}/show"  title="Detalhar">Detalhar</a>
                                     <a class="btn btn-primary" href="/user/{{ $user->id }}/edit"  title="Editar">Editar</a>
                                     <span data-placement="top" title="Excluir">
-                                        <a class="btn btn-danger" data-toggle="modal" data-target="#modal-delete">Excluir</a>
+                                        <a class="btn btn-danger" data-toggle="modal" data-target="#modal-delete"  id="btnModalExcluir" data-id="{{ $user->id }}">Excluir</a>
                                     </span>
                                 </td>
                             </tr>
