@@ -42,9 +42,10 @@
                     </button>
                     <hr>
                 </form>
-                  <div class="text-center">
-                    <a class="small" href="/public/new">Cadastre-se!</a>
-                </div>
+                <a class="btn btn-link pull-right " href="forgot-password">
+                    Esqueceu a senha? Clique aqui!
+                </a>
+
             </div>
         </div>
     </div>
