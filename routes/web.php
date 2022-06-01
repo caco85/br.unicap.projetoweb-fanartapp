@@ -7,8 +7,11 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\FanArtController;
 use App\Http\Controllers\EvaluationController;
 use App\Http\Controllers\LoginRecordController;
+use App\Http\Controllers\AuthController;
 use App\Models\FanArt;
 
+use App\Mail\SendEmailSRD;
+use Illuminate\Support\Facades\Mail;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -70,3 +73,12 @@ Route::delete('/evaluation/delete/{id}', [EvaluationController::class, 'destroy'
 
 //LoginRecords
 Route::get('/loginrecord/loginrecords', [LoginRecordController::class, 'index'])->middleware('auth');
+
+/* ForgotPassword */
+Route::get('/forgot-password', [AuthController::class, 'forgotPassword'] );
+Route::post('/forgot-password/sendEmail', [AuthController::class, 'sendResetLinkEmail']);
+Route::get('/reset-password/{token}',[AuthController::class, 'showResetForm'])->name('reset-password');
+Route::post('/forgot-password', [AuthController::class, 'reset'])->name('update-password');
+
+
+
