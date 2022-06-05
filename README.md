@@ -26,7 +26,8 @@ Run: cd br.unicap.projetoweb-fanartapp
 
 Install Wamp Server ou xampp
 
-Run : composer install
+Run : composer install (caso não tenha o composer baixe em https://getcomposer.org/download/)
+caso der erro no install( Run: composer update)
 
 Run: composer global require laravel/installer
 
