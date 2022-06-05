@@ -63,10 +63,15 @@ Para habilitar o link do storage no laravel (habilitar o exebição das imagens)
 
 Run : php artisan storage:link 
 (caso bug a storage execute esses comando
-cd public
-rm -r storage 
-cd.. 
-php artisan storage:link )
+cd public  ------
+
+rm -r storage -------
+
+cd..  
+
+php artisan storage:link 
+
+)
 
 INICIANDO O SERVER
 RUN: php artisan serve
