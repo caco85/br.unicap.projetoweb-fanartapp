@@ -57,11 +57,13 @@ a {
 
 .container{
     width: 700px;
+    height: 300px;
     display: flex;
     padding: 20px;
     flex-direction: column;
     border-radius: 10px;
-    margin-bottom: 10rem;
+    background-color: #26273a;
+    margin-bottom: 1rem;
 }
 
 .container h2{
@@ -69,30 +71,8 @@ a {
     margin-bottom: 2rem;
 }
 
-.inputs{
+.container p{
     color: white;
-    border: none;
-    border-radius: 10px;
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: #26273a;
-    margin-bottom: 1rem;
-}
-
-.submit-input{
-    height: 28px;
-    border: none;
-    padding: 6px;
-    border-radius: 5px;
-    margin-bottom: 1rem;
-    font-size: 16px;
-    color: white;
-    background-color: #682b38;
-    cursor: pointer;
-}
-
-.submit-input:hover{
-    background-color: #a83643;
 }
 
 .footer {
@@ -101,6 +81,7 @@ a {
     height: 100px;
     background-color: #26273a;
     position: absolute;
+    margin-top: 10rem;
 }
 
 .copyright {
