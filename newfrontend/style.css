@@ -57,16 +57,29 @@ a{
 
 .section{
     display: grid;
-    margin-left: 330px;
+    margin-left: 20px;
+    align-items: center;
     justify-content: center;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 300px);
     grid-auto-flow: column;
+    column-gap: 40px;
     row-gap: 80px;
 }
 
 .dynamic-img {
-    height: 300px;
-    width: 200px;
+    height: 230px;
 }
 
+.dynamic-container{
+    display: flex;
+    background-color: #26273a;
+    padding: 30px;
+    border-radius: 10px;
+    color: white;
+    width: 50vh;
+}
+
+.description{
+    margin-left: 20px;
+}
