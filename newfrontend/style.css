@@ -87,28 +87,16 @@ a {
 }
 
 .footer {
-    bottom: o solid;
+    bottom: o;
     width: 100%;
-    height: 200px;
+    height: 100px;
     background-color: #26273a;
-}
-
-.rodape{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
-
-.footer-item h2{
-    margin-top: 10px;
-    font-size: 20px;
-    color: #b6465f;
-    margin-bottom: 10px;
+    position: absolute;
 }
 
 .copyright{
+    padding: 30px;
     font-size: 18px;
-    margin-top: 4rem;
     display: flex;
     justify-content: center;
     color: white;
