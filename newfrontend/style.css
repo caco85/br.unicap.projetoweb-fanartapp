@@ -55,14 +55,13 @@ a {
 
 .section {
     display: grid;
-    margin-left: 20px;
     align-items: center;
     justify-content: center;
     grid-template-columns: repeat(0, 1fr);
     grid-template-rows: repeat(2, 300px);
     grid-auto-flow: column;
     column-gap: 40px;
-    row-gap: 50px;
+    row-gap: 80px;
 }
 
 .dynamic-img {
@@ -75,7 +74,7 @@ a {
     padding: 30px;
     border-radius: 10px;
     color: white;
-    width: 50vh;
+    width: 55vh;
 }
 
 .description {
