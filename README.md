@@ -26,7 +26,8 @@ Run: cd br.unicap.projetoweb-fanartapp
 
 Install Wamp Server ou xampp
 
-Run : composer Install
+Run : composer install (caso não tenha o composer baixe em https://getcomposer.org/download/)
+caso der erro no install( Run: composer update)
 
 Run: composer global require laravel/installer
 
@@ -61,7 +62,17 @@ obs foi alterado para postgre e caso use mysql na linha 18 do config/database.ph
 
 Para habilitar o link do storage no laravel (habilitar o exebição das imagens)
 
-Run : php artisan storage:link
+Run : php artisan storage:link 
+(caso bug a storage execute esses comando
+cd public  ------
+
+rm -r storage -------
+
+cd..  
+
+php artisan storage:link 
+
+)
 
 INICIANDO O SERVER
 RUN: php artisan serve
