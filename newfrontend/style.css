@@ -50,7 +50,7 @@ a {
 }
 
 .main{
-    margin-bottom: 5rem;
+    margin-bottom: 2rem;
 }
 
 .section {
@@ -76,7 +76,6 @@ a {
     border-radius: 10px;
     color: white;
     width: 50vh;
-    margin-bottom: 2rem;
 }
 
 .description { 
@@ -88,10 +87,34 @@ a {
 }
 
 .footer {
-    background: #26273a;
+    bottom: o solid;
     width: 100%;
-    height: 100px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    height: 200px;
+    background-color: #26273a;
 }
+
+.rodape{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.footer-item h2{
+    margin-top: 10px;
+    font-size: 20px;
+    color: #b6465f;
+    margin-bottom: 10px;
+}
+
+.copyright{
+    font-size: 18px;
+    margin-top: 4rem;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+ .encontre-me{
+     margin-left: 15px;
+     font-size: 18px;
+     color: #b6465f;
+ }
