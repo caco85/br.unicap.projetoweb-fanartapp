@@ -4,12 +4,12 @@
         <div class="col mb-4">
 
             <div class="text-center">
-                <h2 class="h4 text-gray-900 mb-4">Detalhes do Usuário:</h2>
+                <h2 class="h4 text-white mb-4">Detalhes do Usuário:</h2>
             </div>
             <p></p>
             <div class="media mb-4">
                 <div class="media-body">
-                    <h4 class="mt-0 mb-1">{{$user->name}}</h4>
+                    <h4 class="mt-0 mb-1 text-white">{{$user->name}}</h4>
                 </div>
                 @if ($user->photo )
                     <img  class="img-profile rounded-circle ml-3" src="{{ url('storage/'.$user->photo )}}" style="height: 10rem; width: 10rem;" >

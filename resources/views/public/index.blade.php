@@ -6,10 +6,10 @@
                 <div class="card h-100">
                         <a href="/fanart/{{ $fanart->id }}/show">
                     @if ($fanart->image)
-                        <img src="{{ url('storage/'.$fanart->image )}}" class="card-img-top "  alt="{{ $fanart->title}}">
+                        <img src="{{ url('storage/'.$fanart->image )}}" class="card-img-top " style="height: 15rem" alt="{{ $fanart->title}}">
                     @endif
                     </a>
-                    <div class="card-body">
+                    <div class="card-body" style="background-color: #26273a;    color: white;">
                         <h5 class="card-title">{{$fanart->title}} </h5>
                         <h6 class="card-title">{{$fanart->category->type}}</h6>
                         <p class="card-text">{{$fanart->description }}</p>
@@ -18,9 +18,9 @@
                             <p class="card-text">{{ round($fanart->mediaRating,1) }}<i class="fas fa-star"></i></p>
                         @endif
                     </div>
-                    <div class="card-footer">
+                    {{-- <div class="card-footer">
                         <small class="text-muted">Last updated 3 mins ago</small>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         @endforeach

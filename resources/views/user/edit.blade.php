@@ -4,14 +4,24 @@
         <div class="col">
             <div class="p-5">
                 <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Editar Usuuário:</h1>
+                    <h1 class="h4 text-white mb-4">Editar Usuário:</h1>
                 </div>
+
+                <div class="media mb-4">
+                    <div class="media-body">
+                        {{-- <h4 class="mt-0 mb-1 text-white">{{$user->name}}</h4> --}}
+                    </div>
+                    @if ($user->photo )
+                        <img  class="img-profile rounded-circle ml-3" src="{{ url('storage/'.$user->photo )}}" style="height: 10rem; width: 10rem;" >
+                    @endif
+                </div>
+
                 <form class="user" method="post" enctype="multipart/form-data" action="{{ url('user/update') }}/{{$user->id}}">
                     @csrf
                     <div class="form-group row">
-                        <label for="name">Nome:</label>
                         <div class="col-sm-12 mb-3 mb-sm-0">
-                            <input type="text" class="form-control " id="name" name="name" value="{{$user->name}}">
+                            <label for="name">Nome:</label>
+                            <input type="text" class="form-control text-black" id="name" name="name" value="{{$user->name}}">
                         </div>
                     </div>
                     <div class="form-group">
@@ -21,9 +31,7 @@
                     <div class="form-group">
 
                         <label for="photo">Foto:</label>
-                        @if ($user->photo)
-                            <img src="{{ url('storage/'.$user->photo ) }}" style="max-width: 50px;">
-                        @endif
+
                         <input type="file" class="form-control " id="photo" name="photo">
                     </div>
 
@@ -34,29 +42,8 @@
                     <div class="form-group">
                         <label for="birthday">Data de Aniversário:</label>
                         <input type="date" class="form-control " id="birthday" name="birthday" value="{{$user->birthday}}">
-                    </div>
-                    <div class="form-group">
-                        <input type="checkbox" id="chancePass" name="chancePass" onclick="checkInputCB(this)">
-                        <label for="chancePass">Deseja alterar a senha?</label>
-                    </div>
-                    <div  id="chancePassword" class="form-group row " hidden>
-                        <div class="col-sm-6 mb-3 mb-sm-0">
-                            <input id="password" type="password" placeholder="Senha" class="form-control
-                            @error('password') is-invalid @enderror" name="password"  value="{{$user->password}}" autocomplete="new-password">
 
-                            @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                        <div class="col-sm-6 mb-4">
-                            <input id="password_confirmation" type="password" class="form-control " name="password_confirmation"
-                                    autocomplete="new-password"   value="{{$user->password}}" placeholder="Confirmação de Senha">
-                        </div>
-                    </div>
-
-                    <div>
+                    <div class="mt-4">
                         <button type="submit" class="btn btn-primary btn-block">
                             Atualizar
                         </button>

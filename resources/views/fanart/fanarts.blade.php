@@ -7,21 +7,21 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                         <tr class="d-flex">
-                            <th class="col-1 text-center">ID</th>
+                            {{-- <th class="col-1 text-center">ID</th> --}}
                             <th class="col-3  text-center">Titulo</th>
                             <th class="col-3 text-center">Postado por</th>
                             <th class="col-2 text-center">Categoria</th>
-                            <th class="col-3 text-center">Opções</th>
+                            <th class="col-4 text-center">Opções</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach ($fanarts as $fanart)
                             <tr class="d-flex">
-                                <td class="col-1 text-center">{{ $fanart->id }}</td>
+                                {{-- <td class="col-1 text-center">{{ $fanart->id }}</td> --}}
                                 <td class="col-3  text-center">{{ $fanart->title }}</td>
                                 <td class="col-3  text-center">{{ $fanart->user->name }}</td>
                                 <td class="col-2 text-center">{{$fanart->category->type}}</td>
-                                <td class="col-3 text-center">
+                                <td class="col-4 text-center">
                                     <a class="btn btn-success" href="/fanart/{{ $fanart->id }}/show"  title="Detalhar">Detalhar</a>
                                     <a class="btn btn-primary" href="/fanart/{{ $fanart->id }}/edit"  title="Editar">Editar</a>
                                     <span data-placement="top" title="Excluir">

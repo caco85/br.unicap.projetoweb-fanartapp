@@ -1,15 +1,8 @@
 @extends('layouts.template')
 @section('content')
-    <div class="row">
-        <div class="col-lg-6 d-none d-lg-block">
-            <div class="row" style="position: absolute;
-            top: 30%;
-            height: 20px;
-            margin-left: 30px;
-            margin-right: 30px;
-            margin-top: -10px;">
-               <img  src="{{ asset('/img/logo.png') }}" width="100%">
-            </div>
+    <div class="row mb-4">
+        <div class="col-lg-6 d-none d-lg-block mb-4">
+            <img  src="{{ asset('/img/logo.png') }}" width="100%">
         </div>
         <div class="col-lg-6">
             <div class="p-5">

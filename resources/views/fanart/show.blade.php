@@ -5,7 +5,7 @@
             <img src="{{ url('storage/'.$fanart->image )}}" class="col-lg-6 d-none d-lg-block  img-thumbnail"  >
         @endif
         <div class="col">
-            <h2><strong>Detalhes da FanArt:</strong></h2>
+            <h2 class="text-white"><strong>Detalhes da FanArt:</strong></h2>
             <h5 class="mb-1">{{$fanart->title}} </h5>
             <p class="mb-2">{{ $fanart->description}}</p>
             <ul class="list-group list-group-flush mb-3">
@@ -67,12 +67,11 @@
             </div>
         </div>
     </div>
-    <div class="row" id="toComments" hidden>
-        <ul class="list-group list-group-flush mb-3">
-        <h5 class="mb-4">O que acharam desta fanart!</h5><br>
+    <div class="col-xs-12" id="toComments" hidden>
+        <h5 class="mb-4 text-white">O que acharam desta fanart!</h5><br>
         @foreach ($evaluations as $evaluation)
-                <li class="list-group-item">Comentário: {{ $evaluation->description }}</li>
+                <p class="mb-1">Comentário: {{ $evaluation->description }}</p>
         @endforeach
-        </ul>
+
     </div>
 @endsection

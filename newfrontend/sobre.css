@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #2B2D42;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 25px;
+    margin-bottom: 3rem;
+    background-color: #26273a;
+}
+
+.nav-dig-img {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 25px
+}
+
+.logop1 {
+    color: #D90429;
+}
+
+.logop2 {
+    color: #cbeef3;
+}
+
+.navbar {
+    display: flex;
+    gap: 50px;
+}
+
+a {
+    color: white;
+}
+
+.navbar a:hover {
+    color: #EF233C;
+}
+
+.main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    width: 700px;
+    height: 300px;
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: #26273a;
+    margin-bottom: 1rem;
+}
+
+.container h2{
+    color: white;
+    margin-bottom: 2rem;
+}
+
+.container p{
+    color: white;
+}
+
+.footer {
+    bottom: o;
+    width: 100%;
+    height: 100px;
+    background-color: #26273a;
+    position: absolute;
+    margin-top: 10rem;
+}
+
+.copyright {
+    padding: 30px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.encontre-me {
+    margin-left: 5px;
+    font-size: 18px;
+    color: #b6465f;
+}

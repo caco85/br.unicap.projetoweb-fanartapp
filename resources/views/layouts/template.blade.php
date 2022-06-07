@@ -6,6 +6,9 @@
         <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
             rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap" rel="stylesheet">
 
         <!-- Styles -->
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
@@ -16,69 +19,61 @@
     </head>
     <body id="page-top">
         <div class="container">
-            <header class="card-header mb-4">
-                <div class="card-img">
-                    <img  src="{{ asset('/img/logo.png') }}"  style="height: 40px; width: 100px; position: absolute">
+            <header class="header">
+                <div class="nav-dig-img">
+                    <h2 class="logop1">Fanart<h2 class="logop2">Online</h2></h2>
                 </div>
-                <ul class="nav justify-content-end">
-                    <li class="nav-item">
-                        <a class="nav-link " href="{{url('public/index')}}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{url('public/about')}}">Sobre</a>
-                    </li>
+                <nav class="navbar">
+                    <a href="{{url('public/index')}}" id="home">Home</a>
+                    <a href="{{url('public/about')}}" id="sobre">Sobre</a>
                     @if(!Auth::check())
-                        <li class="nav-item">
-                            <a class="nav-link" href=" {{url('public/new')}} ">Cadastre-se</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="{{url('login')}}">Login</a>
-                        </li>
+                    <a href="{{url('login')}}" id="login">Login</a>
+                    <a href="{{url('public/new')}}" class="buttoncadastrar">Cadastrar-se</a>
                     @else
                         @php $users = Auth::user(); @endphp
 
                         @if($users->type == 'admin')
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Menu</a>
+                                <a class="nav-link dropdown-toggle no-arrow" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Menu</a>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="{{url('/evaluation/evaluations')}}">Avaliações</a>
-                                    <a class="dropdown-item" href="{{url('/fanart/fanarts')}}">FanArt</a>
-                                    <a class="dropdown-item" href="{{url('/loginrecord/loginrecords')}}">Registro de Logins</a>
-                                    <a class="dropdown-item" href="{{url('/user/users')}}">Usuários</a>
-                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Sair</a>
+                                    <a class="dropdown-item text-black" href="{{url('/evaluation/evaluations')}}">Avaliações</a>
+                                    <a class="dropdown-item text-black" href="{{url('/fanart/fanarts')}}">FanArt</a>
+                                    <a class="dropdown-item text-black" href="{{url('/loginrecord/loginrecords')}}">Registro de Logins</a>
+                                    <a class="dropdown-item text-black" href="{{url('/user/users')}}">Usuários</a>
+                                    <a class="dropdown-item text-black" href="#" data-toggle="modal" data-target="#logoutModal">Sair</a>
                                 </div>
                             </li>
                         @else
-                            <li class="nav-link">{{$users->name}}</li>
+                            <li class="text-white">{{$users->name}}</li>
 
                             <li class="nav-item dropdown " >
-                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                <a class="text-black dropdown-toggle no-arrow" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                                     @if ($users->photo)
                                         <img class="rounded-circle" src="{{ asset('storage/'.$users->photo )}}" style="height: 50px; width: 50px;">
                                     @else
-                                        Menu
+                                      <span>Menu</span>
                                     @endif
 
                                 </a>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item"  href="{{url('/evaluation/evaluations')}}">Suas Avaliações</a>
-                                    <a class="dropdown-item" href="{{url('/fanart/fanarts')}}">Suas Fanart's</a>
-                                    <a class="dropdown-item" href="/user/{{$users->id}}/show">Perfil</a>
-                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Sair</a>
+                                    <a class="dropdown-item text-black"  href="{{url('/evaluation/evaluations')}}">Suas Avaliações</a>
+                                    <a class="dropdown-item text-black" href="{{url('/fanart/fanarts')}}">Suas Fanart's</a>
+                                    <a class="dropdown-item text-black" href="/user/{{$users->id}}/show">Perfil</a>
+                                    <a class="dropdown-item text-black" href="#" data-toggle="modal" data-target="#logoutModal">Sair</a>
                                 </div>
                             </li>
 
                         @endif
-
                     @endif
-                </ul>
-
+                </nav>
             </header>
+
+
             <div class="container-fluid">
                 <!-- Page Heading -->
                 <div class="title-with-button text-center">
                     @if (isset($pageTitle))
-                        <h1 class="d-inline-block h3 mb-4 text-gray-800"><strong>{{ $pageTitle }}</strong></h1>
+                        <h1 class="d-inline-block h3 mb-4 text-white"><strong>{{ $pageTitle }}</strong></h1>
                     @endif
                     @if(isset($titleButton) && isset($route))
                         <a href="{{ $route }}" class="d-inline-block btn btn-primary btn-sm float-right" role="button">{{ $titleButton }}</a>
@@ -88,13 +83,19 @@
             </div>
 
             <!-- Footer -->
-            <footer class="card-footer">
+            <footer class="footer mt-4">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy;  Renato Nunes 2021 - Mais informações <a href="https://www.facebook.com/renato.nunes.376/" target="_blank">Encontre-me</a></span>
+                        <span class="mr-2">Copyright Equipe FanartOnline 2022 - Mais informações </span>
+                        <div class="pull-right mr-4">
+                            <a  href="#"><i class="fab fa-instagram fa-2x"></i></a>
+                            <a href="#"><i class="fab fa-facebook-square fa-2x"></i></a>
+                            <a  href="#"><i class="fab fa-youtube fa-2x"></i></a>
+                        </div>
                     </div>
                 </div>
             </footer>
+    
             <!-- End of Footer -->
 
 
