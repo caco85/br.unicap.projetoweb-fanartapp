@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #2B2D42;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 25px;
+    margin-bottom: 3rem;
+    background-color: #26273a;
+}
+
+.nav-dig-img {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 25px
+}
+
+.logop1 {
+    color: #D90429;
+}
+
+.logop2 {
+    color: #cbeef3;
+}
+
+.navbar {
+    display: flex;
+    gap: 50px;
+}
+
+a {
+    color: white;
+}
+
+.navbar a:hover {
+    color: #EF233C;
+}
+
+.section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 10rem;
+}
+
+.img-logo{
+    height: 50vh;
+}
+
+.login-info h1{
+    color: white;
+    font-size: 35px;
+    margin-left: 55px;
+    margin-bottom: 1.5rem;
+}
+
+.login-info a{
+    border-top: 0.4px solid #cbeef3;
+    padding-top: 10px;
+    margin-left: 127px;
+}
+
+.login-inputs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.inputs{
+    width: 350px;
+    height: 40px;
+    border: none;
+    padding: 6px;
+    border-radius: 5px;
+    background-color: #202130;
+    margin-bottom: 1rem;
+
+    border-bottom: 0.4px solid #cbeef3;
+}
+
+.submit-input{
+    width: 350px;
+    height: 30px;
+    border: none;
+    padding: 6px;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    font-size: 16px;
+    background-color: #8D99AE;
+    cursor: pointer;
+    margin-bottom: 2rem;
+}
+
+.submit-input:hover{
+    background-color: #cbeef3;
+}
+
+.footer {
+    bottom: o;
+    width: 100%;
+    height: 100px;
+    background-color: #26273a;
+    position: absolute;
+}
+
+.copyright {
+    padding: 30px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.encontre-me {
+    margin-left: 5px;
+    font-size: 18px;
+    color: #b6465f;
+}

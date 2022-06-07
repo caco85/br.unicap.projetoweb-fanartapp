@@ -93,37 +93,13 @@ class UserController extends Controller
             'birthday' => 'required',
             'photo' => 'image|nullable'
         ]);
-        // if($request->hasFile('photo')){
-
-        //     $filenameWithExt = $request->file('photo')->getClientOriginalName();
-
-        //     $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-
-        //     $extension = $request->file('photo')->getClientOriginalExtension();
-
-        //     $fileNameToStore= $filename.'_'.time().'.'.$extension;
-
-        //     $path = $request->file('photo')->storeAs('users-images', $fileNameToStore);
-
-        //     if(!$path)
-        //         return redirect()
-        //             ->back()
-        //             ->with('error','erro ao anexar a foto!');
-        // } else {
-        //     $fileNameToStore = '';
-        // }
-
-        // if (isset($data['photo'])) {
-        //     $relativePath  = $this->saveImage($data['photo']);
-        //     $data['photo'] = $relativePath;
-        // }else
-        // {
-        //     $data['photo'] = '';
-        // }
+        if ($request->file('photo')) {
         $image = $request->file('photo');
         $photoPath = $image->store('imagens/users','public');
       //  dd($data['photo']);
-
+        }else {
+            $photoPath = '';
+        }
         $parseUrl = parse_url($request->instagram);
         if(!isset($parseUrl['scheme'])){
             $request->instagram = 'http://'.$request->instagram;
@@ -174,38 +150,16 @@ class UserController extends Controller
 
         ]);
 
-        // if($request->hasFile('photo')){
-
-        //     if($user->photo && Storage::exists('users-images', $user->photo)){
-        //         Storage::delete("users-images/{$user->photo}");
-        //     }
-
-
-        //     $filenameWithExt = $request->file('photo')->getClientOriginalName();
-
-        //     $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-
-        //     $extension = $request->file('photo')->getClientOriginalExtension();
-
-        //     $fileNameToStore= $filename.'_'.time().'.'.$extension;
-
-        //     $path = $request->file('photo')->storeAs('users-images', $fileNameToStore);
-
-        //     $data['photo'] = $fileNameToStore;
-        //     if(!$path)
-        //         return redirect()
-        //             ->back()
-        //             ->with('error','erro ao anexar a foto!');
-        // }
-
-
-
         if ($request->file('photo')) {
             Storage::disk('public')->delete($user->photo);
         }
 
-        $image = $request->file('photo');
-        $photoPath = $image->store('imagens/users','public');
+        if ($request->file('photo')) {
+            $image = $request->file('photo');
+            $photoPath = $image->store('imagens/users','public');
+            $data['photo'] =  $photoPath ;
+        }
+
 
 
 
@@ -215,7 +169,7 @@ class UserController extends Controller
         }
 
         $data['password'] = bcrypt($request->password);
-        $data['photo'] =  $photoPath ;
+
 
         $user->update( $data);
         $users = Auth::user();

@@ -2,10 +2,10 @@
 @section('content')
     <div class="row mb-4">
         @if ($evaluation->fanart->image)
-            <img src="{{ url('storage/fanartimages/'.$evaluation->fanart->image )}}" class="col-lg-6 d-none d-lg-block  img-thumbnail"  >
+            <img src="{{ url('storage/'.$evaluation->fanart->image )}}" class="col-lg-6 d-none d-lg-block  img-thumbnail"  >
         @endif
         <div class="col">
-            <h2><strong>Detalhes da Avaliação:</strong></h2>
+            <h2 class="text-white"><strong>Detalhes da Avaliação:</strong></h2>
             <h5 class="mb-1">{{$evaluation->star}}<i class="fas fa-star"></i></h5>
             <p class="mb-2">{{ $evaluation->description}}</p>
             <ul class="list-group list-group-flush mb-3">

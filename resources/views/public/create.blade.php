@@ -5,7 +5,7 @@
         <div class="col">
             <div class="p-5">
                 <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Cadastrar Usuário:</h1>
+                    <h1 class="h4 text-white mb-4">Cadastrar Usuário:</h1>
                 </div>
                 <form class="form-group" method="POST"  enctype="multipart/form-data"  action="{{url('user')}}">
                     @csrf
@@ -58,25 +58,27 @@
                             </span>
                         @enderror
                     </div>
-                    <div class="form-group">
-                        <input id="instagram" type="text" name="instagram" placeholder="Instagram"
-                               class="form-control @error('instagram') is-invalid @enderror" value="{{ old('instagram') }}" >
+                    <div class="form-group row">
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                            <input id="instagram" type="text" name="instagram" placeholder="Instagram"
+                                class="form-control @error('instagram') is-invalid @enderror" value="{{ old('instagram') }}" >
 
-                        @error('instagram')
-                        <span class="invalid-feedback" role="alert">
-                                 <strong>{{ $message }}</strong>
-                             </span>
+                            @error('instagram')
+                            <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                         @enderror
-                    </div>
-                    <div class="form-group">
-                        <input type="date" id="birthday" name="birthday"
-                               class="form-control @error('birthday') is-invalid @enderror" value="{{ old('birthday') }}" required autofocus>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="date" id="birthday" name="birthday"
+                                class="form-control @error('birthday') is-invalid @enderror" value="{{ old('birthday') }}" required autofocus>
 
-                        @error('birthday')
-                        <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
+                            @error('birthday')
+                            <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
                     </div>
                     <div class="form-group">
                         @if( Auth::check())

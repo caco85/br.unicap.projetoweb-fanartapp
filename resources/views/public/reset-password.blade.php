@@ -2,7 +2,10 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-lg-6 d-none d-lg-block mb-4">
+            <img  src="{{ asset('/img/logo.png') }}" width="80%">
+       </div>
+        <div class="col-lg-6">
             <div class="card">
 
                 <div class="card-body">

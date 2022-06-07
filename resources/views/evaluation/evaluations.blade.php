@@ -7,21 +7,21 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                         <tr class="d-flex">
-                            <th class="col-1 text-center">ID</th>
+                            {{-- <th class="col-1 text-center">ID</th> --}}
                             <th class="col-3  text-center">Nome do Avaliador</th>
                             <th class="col-3 text-center">Titulo da Fanart</th>
                             <th class="col-2 text-center">Status</th>
-                            <th class="col-3 text-center">Opções</th>
+                            <th class="col-4 text-center">Opções</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach ($evaluations as $evaluation)
                             <tr class="d-flex">
-                                <td class="col-1 text-center">{{ $evaluation->id }}</td>
+                                {{-- <td class="col-1 text-center">{{ $evaluation->id }}</td> --}}
                                 <td class="col-3  text-center">{{ $evaluation->user->name }}</td>
                                 <td class="col-3 text-center">{{$evaluation->fanArt->title}}</td>
                                 <td class="col-2 text-center">{{$evaluation->status}}</td>
-                                <td class="col-3 text-center">
+                                <td class="col-4 text-center">
                                     <a class="btn btn-success" href="/evaluation/{{ $evaluation->id }}/show"  title="Detalhar">Detalhar</a>
                                     <a class="btn btn-primary" href="/evaluation/{{ $evaluation->id }}/edit"  title="Editar">Editar</a>
                                     <span data-placement="top" title="Excluir">

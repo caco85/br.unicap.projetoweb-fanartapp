@@ -51,27 +51,12 @@ class FanArtController extends Controller
             'image' => 'image|nullable',
             'id_scheduleCategory' => 'numeric',
         ]);
-        // if($request->hasFile('image')){
-
-        //     $filenameWithExt = $request->file('image')->getClientOriginalName();
-
-        //     $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-
-        //     $extension = $request->file('image')->getClientOriginalExtension();
-
-        //     $fileNameToStore= $filename.'_'.time().'.'.$extension;
-
-        //     $path = $request->file('image')->storeAs('fanartimages', $fileNameToStore);
-        //     if(!$path)
-        //         return redirect()
-        //             ->back()
-        //             ->with('error','erro ao anexar a foto!');
-        // } else {
-        //     $fileNameToStore = '';
-        // }
-
-        $image = $request->file('image');
-        $fanartsPath = $image->store('imagens/fanarts','public');
+        if ($request->file('image')) {
+            $image = $request->file('image');
+            $fanartsPath = $image->store('imagens/fanarts','public');
+        }else {
+            $fanartsPath = '';
+        }
 
         $user = Auth::user();
         $user_id  = $user->id;
@@ -117,36 +102,15 @@ class FanArtController extends Controller
 
         $fanart = FanArt::findOrFail($id);
         $data = $request->all();
-        // if($request->hasFile('image')){
 
-        //     if($fanart->image && Storage::exists('fanartimages', $fanart->image)){
-
-        //         Storage::delete("fanartimages/{$fanart->image}");
-        //     }
-
-        //     $filenameWithExt = $request->file('image')->getClientOriginalName();
-
-        //     $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-
-        //     $extension = $request->file('image')->getClientOriginalExtension();
-
-        //     $fileNameToStore= $filename.'_'.time().'.'.$extension;
-
-        //     $path = $request->image->storeAs('fanartimages', $fileNameToStore);
-        //     $data['image'] = $fileNameToStore;
-        //     if(!$path)
-        //         return redirect()
-        //             ->back()
-        //             ->with('error','erro ao anexar a foto!');
-        // }
-
-        $image = $request->file('image');
-        $fanartsPath = $image->store('imagens/fanarts','public');
-
-        $data['image'] = $fanartsPath;
+        if ($request->file('image')) {
+            $image = $request->file('image');
+            $fanartsPath = $image->store('imagens/fanarts','public');
+            $data['image'] = $fanartsPath;
+         }
 
         $fanart->update($data);
-        
+
         return Redirect::to('fanart/fanarts');
     }
 
